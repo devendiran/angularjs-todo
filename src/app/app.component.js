@@ -17,7 +17,7 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'my-app',
             templateUrl: '/src/app/app.component.html',
-            styleUrls: ['/src/app/app.component.css']
+            styleUrls: ['src/app/app.component.css']
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

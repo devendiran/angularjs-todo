@@ -11,6 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var todo_component_ts_1 = require('./todo.component.ts');
+var todos_list_component_ts_1 = require('./todos-list.component.ts');
+var todos_service_ts_1 = require('./todos.service.ts');
 var ToDoModule = (function () {
     function ToDoModule() {
     }
@@ -19,11 +21,14 @@ var ToDoModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule
             ],
+            providers: [todos_service_ts_1.ToDoService],
             declarations: [
-                todo_component_ts_1.ToDoComponent
+                todo_component_ts_1.ToDoComponent,
+                todos_list_component_ts_1.ToDoListContainerComponent
             ],
             exports: [
-                todo_component_ts_1.ToDoComponent
+                todo_component_ts_1.ToDoComponent,
+                todos_list_component_ts_1.ToDoListContainerComponent
             ]
         }), 
         __metadata('design:paramtypes', [])

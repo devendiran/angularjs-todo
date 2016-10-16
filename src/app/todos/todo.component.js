@@ -11,12 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var ToDoComponent = (function () {
     function ToDoComponent() {
-        this.test = 'hey';
     }
     ToDoComponent = __decorate([
         core_1.Component({
-            selector: 'my-todos',
-            templateUrl: 'todo.component.html'
+            inputs: ['todo'],
+            selector: 'my-todo',
+            templateUrl: 'todo.component.html',
+            styleUrls: ['todo.component.css']
         }), 
         __metadata('design:paramtypes', [])
     ], ToDoComponent);

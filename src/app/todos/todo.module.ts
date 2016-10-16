@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { ToDoComponent } from './todo.component.ts';
+import { ToDoListContainerComponent } from './todos-list.component.ts';
+import { ToDoService } from './todos.service.ts';
 
 @NgModule({
   imports: [
     BrowserModule
   ],
+  providers: [ ToDoService ], 
   declarations: [
-    ToDoComponent
+    ToDoComponent,
+    ToDoListContainerComponent
   ],
   exports:[
-    ToDoComponent
+    ToDoComponent,
+    ToDoListContainerComponent
   ]
 })
 export class ToDoModule {

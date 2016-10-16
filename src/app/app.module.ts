@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ToDoModule } from './todos/todo.module';
+import { HeaderComponent } from './app-header.component';
 
 @NgModule({
   imports: [
@@ -9,7 +10,8 @@ import { ToDoModule } from './todos/todo.module';
     ToDoModule
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent
   ],
   bootstrap: [ AppComponent ]
 })
