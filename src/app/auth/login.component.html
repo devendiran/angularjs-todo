@@ -1,11 +1,19 @@
-  <div class="wrapper">
-    <form class="form-signin">       
-      <h2 class="form-signin-heading primary-text-color">Please login</h2>
-      <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
-      <input type="password" class="form-control" name="password" placeholder="Password" required=""/>      
-      <label class="checkbox">
-        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
-      </label>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
+  <div class="wrapper login-cont">
+    <form class="form-signin  md-whiteframe-2dp">       
+      <h2 class="form-signin-heading secondary-text-color">Sign in</h2>
+      <input type="text" class="form-control email-inp" name="username" placeholder="Email Address" required="" autofocus="" />
+      <input type="password" class="form-control pass-inp" name="password" placeholder="Password"/> 
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> 
+          <span class="secondary-text-color" style="font-weight: 400;">
+            Remember me
+          </span>
+        </label>
+      </div>
+      <button class="btn btn-lg accent-color btn-block sub-btn" type="submit">Sign in</button>  
+      <a [routerLink]="['/auth/signup']">SignUp</a> 
+      <a [routerLink]="['/auth/forget-password']" class="pull-right">Forget Password</a>
     </form>
+
   </div>

@@ -3,6 +3,7 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { AuthRoute } from './auth.router';
 import { AuthComponent} from './auth.component';
 import { LoginComponent } from "./login.component";
+import { SignUpComponent } from "./signup.component";
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import { LoginComponent } from "./login.component";
   ],
   declarations: [
     AuthComponent,
-    LoginComponent
+    LoginComponent,
+    SignUpComponent
   ]
 })
 export class AuthModule {
