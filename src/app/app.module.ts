@@ -2,17 +2,18 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule }  from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { ToDoModule } from './todos/todo.module';
 import { HeaderComponent } from './app-header.component';
+import { AuthModule } from './auth/auth.module';
 
 const ROUTES: Routes = [{
-      path:'', component: HeaderComponent
+      path:'**', redirectTo:'/auth/login',
     }];
 
 @NgModule({
   imports: [
     BrowserModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    AuthModule
   ],
   declarations: [
     AppComponent,
