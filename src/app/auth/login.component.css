@@ -1,7 +1,7 @@
 @import "bourbon";
 
 
-.wrapper {	
+.wrapper {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -14,7 +14,7 @@
   padding: 30px 25px 30px 25px;
   margin: 0 auto;
   background-color: #fff;
-  border: 1px solid rgba(0,0,0,0.1);  
+  border: 1px solid rgba(0,0,0,0.1);
   border-radius: 2px;
   .form-signin-heading,
 	.checkbox {
@@ -51,9 +51,12 @@
 }
 
 .email-inp, .pass-inp {
-    margin-bottom: 15px;
+    height: 52px;
 }
-
+.login-cont .checkbox {
+  margin-top: 0px;
+  margin-bottom: 16px;
+}
 .form-signin-heading {
    text-align: center;
    margin-top: 0px;
@@ -70,4 +73,10 @@
 
 .login-cont .sub-btn {
     margin-bottom: 10px;
+}
+
+.error-container .error-msg {
+    color: red;
+    font-size: 12px;
+    padding: 1px;
 }

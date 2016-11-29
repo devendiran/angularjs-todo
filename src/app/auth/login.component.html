@@ -1,18 +1,35 @@
   <div class="wrapper login-cont">
-    <form class="form-signin  md-whiteframe-2dp">       
+    <form class="form-signin  md-whiteframe-2dp">
       <h2 class="form-signin-heading secondary-text-color">Sign in</h2>
-      <input type="text" class="form-control email-inp" name="username" placeholder="Email Address" required="" autofocus="" />
-      <input type="password" class="form-control pass-inp" name="password" placeholder="Password"/> 
+      <div class="email-inp">
+        <input type="text" class="form-control " [(ngModel)]="user.email" name="email" placeholder="Email Address" required #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"/>
+        <div class="error-container" [hidden]="email.valid || email.untouched">
+          <div class="error-msg" *ngIf="email.errors && email.errors.required">
+              Please enter your email.
+          </div>
+          <div class="error-msg" *ngIf="email.errors && email.errors.pattern">
+              Please enter an valid email.
+          </div>
+        </div>
+      </div>
+      <div class="pass-inp">
+        <input type="password" class="form-control" [(ngModel)]="user.password" name="password" placeholder="Password" #pass="ngModel" required/>
+        <div class="error-container" [hidden]="pass.valid || pass.untouched">
+          <div class="error-msg" *ngIf="pass.errors && pass.errors.required">
+              Please enter your password.
+          </div>
+        </div>
+      </div>
       <div class="checkbox">
         <label>
-          <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> 
+          <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe">
           <span class="secondary-text-color" style="font-weight: 400;">
             Remember me
           </span>
         </label>
       </div>
-      <button class="btn btn-lg accent-color btn-block sub-btn" type="submit">Sign in</button>  
-      <a [routerLink]="['/auth/signup']">SignUp</a> 
+      <button class="btn btn-lg accent-color btn-block sub-btn" type="submit">Sign in</button>
+      <a [routerLink]="['/auth/signup']">SignUp</a>
       <a [routerLink]="['/auth/forget-password']" class="pull-right">Forget Password</a>
     </form>
 
