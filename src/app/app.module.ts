@@ -4,6 +4,7 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './app-header.component';
 import { AuthModule } from './auth/auth.module';
+import { DashBoardModule } from './dashboard/dashboard.module';
 
 const ROUTES: Routes = [{
       path:'**', redirectTo:'/auth/login',
@@ -13,7 +14,8 @@ const ROUTES: Routes = [{
   imports: [
     BrowserModule,
     RouterModule.forRoot(ROUTES),
-    AuthModule
+    AuthModule,
+    DashBoardModule
   ],
   declarations: [
     AppComponent,

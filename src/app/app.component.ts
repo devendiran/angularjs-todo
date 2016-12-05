@@ -1,10 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AuthService } from './auth/auth.service';
+import { Subscription }   from 'rxjs/Subscription';
+import { Router } from '@angular/router';
+
 import '../../public/css/styles.css';
 
 @Component({
-  selector: 'my-app',
-  template: '<router-outlet></router-outlet>',
-  styleUrls: ['./app.component.css']
+  selector: 'body',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  host: {
+    "[class.dark-primary-color]":"isUnAuthorized"
+  }
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy, OnInit{
+  isUnAuthorized = true;
+  subscription: Subscription;
+
+  private subAuthStatus = (isAuthorized: boolean) => {
+    this.isUnAuthorized = !isAuthorized;
+    if (!isAuthorized) {
+      this.router.navigate(['auth/login']);
+    }
+  }
+  ngOnInit(){
+     //called after the constructor and called  after the first ngOnChanges()
+  }
+  constructor(private authSrv: AuthService, private router: Router) {
+    this.subscription = authSrv.isAuthorized$.subscribe(this.subAuthStatus);
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }

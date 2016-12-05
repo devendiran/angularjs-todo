@@ -1,5 +1,5 @@
   <div class="wrapper auth-cont">
-    <form class="form-signin  md-whiteframe-2dp" #signinForm="ngForm" novalidate>
+    <form class="form-signin  md-whiteframe-2dp" #signinForm="ngForm" novalidate (ngSubmit)="signin()">
       <h2 class="form-signin-heading secondary-text-color">Sign in</h2>
       <div class="email-inp">
         <input type="text" class="form-control " [(ngModel)]="user.email" name="email" placeholder="Email Address" required #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"/>
@@ -29,7 +29,7 @@
         </label>
       </div>
       <button class="btn btn-lg accent-color btn-block sub-btn" type="submit" [disabled]="!signinForm.valid">Sign in</button>
-      <a [routerLink]="['/auth/signup']">SignUp</a>
+      <a [routerLink]="['/auth/signup']" >SignUp</a>
       <a [routerLink]="['/auth/forget-password']" class="pull-right">Forget Password</a>
     </form>
 
