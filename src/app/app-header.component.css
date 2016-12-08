@@ -10,6 +10,8 @@
   transform: translate3d(0,0,0);
   transition: .25s transform;
   backface-visibility: hidden;
+  height: 50px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.39);
 }
 
 .main-header h1 {
@@ -33,4 +35,10 @@
   display: inline-block;
   padding: 0 2rem;
   border-left: .1rem solid #555;
+}
+
+.logo {
+  height: 40px;
+  display: inline-block;
+  margin: 5px;
 }

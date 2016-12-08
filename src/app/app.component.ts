@@ -10,7 +10,7 @@ import '../../public/css/styles.css';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   host: {
-    "[class.dark-primary-color]":"isUnAuthorized"
+    "[class.default-primary-color]":"isUnAuthorized"
   }
 })
 export class AppComponent implements OnDestroy, OnInit{
