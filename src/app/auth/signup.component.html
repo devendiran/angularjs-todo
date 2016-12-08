@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="pass-inp">
-        <input type="password" class="form-control" [(ngModel)]="user.password" name="password" placeholder="Password" #pass="ngModel" required/>
+        <input type="password" class="form-control" [(ngModel)]="user.password" name="password" placeholder="Password" #pass="ngModel" required validateEqual="confirmPassword" reverse="true"/>
         <div class="error-container" [hidden]="pass.valid || pass.untouched">
           <div class="error-msg" *ngIf="pass.errors && pass.errors.required">
               Please enter your password.
@@ -29,10 +29,13 @@
         </div>
       </div>
       <div class="pass-inp">
-        <input type="password" class="form-control" [(ngModel)]="user.confirmPassword" name="confirmPassword" placeholder="Confirm Password" #cnfPass="ngModel" required/>
+        <input type="password" class="form-control" [(ngModel)]="user.confirmPassword" name="confirmPassword" placeholder="Confirm Password" #cnfPass="ngModel" required validateEqual="password" reverse="false"/>
         <div class="error-container" [hidden]="cnfPass.valid || cnfPass.untouched">
-          <div class="error-msg" *ngIf="cnfPass.errors && cnfPass.errors.required">
+          <div class="error-msg" *ngIf="cnfPass.errors && cnfPass.errors.required" (click)="makeSense(cnfPass)">
               Please enter your password again.
+          </div>
+          <div class="error-msg" *ngIf="cnfPass.errors  && !cnfPass.errors.validateEqual && cnfPass.value" (click)="makeSense(cnfPass)">
+              Confirm Password must match the password.
           </div>
         </div>
       </div>
@@ -45,7 +48,8 @@
         </label>
       </div> -->
       <button class="btn btn-lg accent-color btn-block sub-btn" type="submit" [disabled]="!signupForm.valid">Sign Up</button>
-      <a [routerLink]="['/auth/login']">Login</a>
-      <a [routerLink]="['/auth/forget-password']" class="pull-right">Forget Password</a>
+      <span class="secondary-text-color" style="font-size: 13px;">Already Have Account?</span>
+      <a [routerLink]="['/auth/login']" class="pull-right">Login</a>
     </form>
   </div>
+

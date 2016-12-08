@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
 })
 export class LoginComponent {
   public user: User;
-
+  public displayFroPassPanel: boolean = false;
   constructor(public router: Router, private authSrv: AuthService){
     this.user = new User('','');
   };
@@ -17,5 +17,9 @@ export class LoginComponent {
   signin(){
     this.router.navigate(['home'],{});
     this.authSrv.authorizationStatus(true);
+  }
+
+  showForgetPasswordPanel() {
+    this.displayFroPassPanel = !this.displayFroPassPanel;
   }
 }

@@ -30,7 +30,7 @@
       </div>
       <button class="btn btn-lg accent-color btn-block sub-btn" type="submit" [disabled]="!signinForm.valid">Sign in</button>
       <a [routerLink]="['/auth/signup']" >SignUp</a>
-      <a [routerLink]="['/auth/forget-password']" class="pull-right">Forget Password</a>
+      <a (click)="showForgetPasswordPanel()" class="pull-right forget-pass">Forget Password</a>
     </form>
-
+    <forget-password *ngIf="displayFroPassPanel"></forget-password>
   </div>

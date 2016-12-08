@@ -11,8 +11,4 @@ export class SignUpComponent {
   constructor(){
     this.user = new User('','');
   };
-
-  makeSense() {
-  	console.log(this.user,'............user');
-  }
 }

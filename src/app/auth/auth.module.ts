@@ -5,8 +5,10 @@ import { AuthRoute } from './auth.router';
 import { AuthComponent} from './auth.component';
 import { LoginComponent } from "./login.component";
 import { SignUpComponent } from "./signup.component";
+import { ForgetPasswordComponent} from './auth.forget-password.component.ts';
 import { AuthService } from "./auth.service";
 import { AuthGuard } from "./auth-guard.service";
+import { EqualValidator } from "./auth.equal-validator.directive";
 
 @NgModule({
   imports: [
@@ -17,7 +19,9 @@ import { AuthGuard } from "./auth-guard.service";
   declarations: [
     AuthComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    EqualValidator,
+    ForgetPasswordComponent
   ],
   providers:[{
     provide: AuthService, useClass: AuthService
