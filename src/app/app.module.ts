@@ -6,6 +6,7 @@ import { HeaderComponent } from './app-header.component';
 import { AuthModule } from './auth/auth.module';
 import { DashBoardModule } from './dashboard/dashboard.module';
 
+
 const ROUTES: Routes = [{
       path:'**', redirectTo:'/auth/login',
     }];

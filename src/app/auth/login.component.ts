@@ -11,6 +11,7 @@ import * as $ from "jquery";
 export class LoginComponent {
   public user: User;
   public displayFroPassPanel: boolean = false;
+
   constructor(public router: Router, private authSrv: AuthService){
     this.user = new User('','');
   };
@@ -20,7 +21,8 @@ export class LoginComponent {
     this.authSrv.authorizationStatus(true);
   }
 
-  showForgetPasswordPanel() {
+  togglePasswordPanel() {
     this.displayFroPassPanel = !this.displayFroPassPanel;
   }
+
 }

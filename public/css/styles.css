@@ -15,11 +15,7 @@ body {
 .divider-color         { border-color: #BDBDBD; }
 .accent-color:hover { color:  #FFFFFF}
 
-.logo {
-  height: 30px;
-  display: inline-block;
-  margin: 5px;
-}
+
 
 .fit-image-ht {
 	height: 100%;

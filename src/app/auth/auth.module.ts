@@ -5,10 +5,11 @@ import { AuthRoute } from './auth.router';
 import { AuthComponent} from './auth.component';
 import { LoginComponent } from "./login.component";
 import { SignUpComponent } from "./signup.component";
-import { ForgetPasswordComponent} from './auth.forget-password.component.ts';
+import { ForgetPasswordComponent} from './auth.forget-password.component';
 import { AuthService } from "./auth.service";
 import { AuthGuard } from "./auth-guard.service";
 import { EqualValidator } from "./auth.equal-validator.directive";
+import { ClickOutSide } from './auth.click-out.directive';
 
 @NgModule({
   imports: [
@@ -21,7 +22,11 @@ import { EqualValidator } from "./auth.equal-validator.directive";
     LoginComponent,
     SignUpComponent,
     EqualValidator,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    ClickOutSide
+  ],
+  exports:[
+    ClickOutSide
   ],
   providers:[{
     provide: AuthService, useClass: AuthService

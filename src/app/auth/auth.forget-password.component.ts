@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Output, EventEmitter } from '@angular/core';
 import { User } from './user';
 
 @Component({
@@ -18,6 +18,15 @@ export class ForgetPasswordComponent implements OnDestroy, OnInit {
     this.user = new User('','');
   }
 
+  @Output()
+  public closePan = new EventEmitter();
+
+  closePannel(event: any) {
+    if (!event.target.classList.contains('forget-pass')) {
+      this.closePan.emit(null);
+    }
+  }
+  
   ngOnDestroy() {
   }
 }
