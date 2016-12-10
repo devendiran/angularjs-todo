@@ -8,15 +8,18 @@ body {
 .dark-primary-color    { background: #303F9F; }
 .default-primary-color { background: #3F51B5; }
 .light-primary-color   { background: #C5CAE9; }
-.text-primary-color    { color: #FFFFFF; }
+.text-primary-color    { color: #FFFFFF !important; }
 .accent-color,.accent-color:hover { background: #FF4081; }
 .primary-text-color    { color: #212121; }
 .secondary-text-color  { color: #757575; }
 .divider-color         { border-color: #BDBDBD; }
-.accent-color:hover { color:  #FFFFFF}
+.accent-color:hover { color:  #FFFFFF;}
 
 
 
 .fit-image-ht {
 	height: 100%;
 }
+
+.dark-primary-color-bg-cl    { background-color: #303F9F !important; }
+.default-primary-color-bg-cl { background: #3F51B5 !important; }

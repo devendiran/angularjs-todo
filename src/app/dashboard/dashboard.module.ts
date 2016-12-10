@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { DashBoardRouter } from './dashboard.router';
 import { DashBoardComponent } from "./dashboard.component";
+import { CardComponent } from "./card.component";
 
 @NgModule({
   imports: [
@@ -9,7 +10,8 @@ import { DashBoardComponent } from "./dashboard.component";
     DashBoardRouter
   ],
   declarations: [
-    DashBoardComponent
+    DashBoardComponent,
+    CardComponent
   ]
 })
 export class DashBoardModule {
