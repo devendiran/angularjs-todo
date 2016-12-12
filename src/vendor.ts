@@ -14,5 +14,4 @@ import 'jquery';
 import 'bootstrap/dist/js/bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
-
-
+import 'material-design-icons/iconfont/material-icons.css';

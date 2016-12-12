@@ -4,7 +4,7 @@ import { Directive, EventEmitter, Output, ElementRef, HostListener } from '@angu
     selector: '[clickOutSide]'
 })
 export class ClickOutSide  {
-	
+
 	@Output()
 	public clickOutSide = new EventEmitter();
 
@@ -22,9 +22,9 @@ export class ClickOutSide  {
   }
 
   @HostListener('document:keydown', ['$event'])
-  public handleKeyboardEvent(event: KeyboardEvent) { 
+  public handleKeyboardEvent(event: KeyboardEvent) {
     console.log('...........test',event);
-    if(event.key === 'Escape') {
+    if(event.keyCode === 27) {
       this.escKeyPressed.emit(event);
     }
   }

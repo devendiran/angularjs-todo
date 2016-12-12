@@ -2,16 +2,16 @@ import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { DashBoardRouter } from './dashboard.router';
 import { DashBoardComponent } from "./dashboard.component";
-import { CardComponent } from "./card.component";
+import { TodoModule } from '../todo/todo.module';
 
 @NgModule({
   imports: [
     BrowserModule,
-    DashBoardRouter
+    DashBoardRouter,
+    TodoModule
   ],
   declarations: [
-    DashBoardComponent,
-    CardComponent
+    DashBoardComponent
   ]
 })
 export class DashBoardModule {

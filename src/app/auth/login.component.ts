@@ -3,6 +3,7 @@ import { User } from './user';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 import * as $ from "jquery";
+
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
