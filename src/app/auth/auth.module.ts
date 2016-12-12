@@ -9,24 +9,21 @@ import { ForgetPasswordComponent} from './auth.forget-password.component';
 import { AuthService } from "./auth.service";
 import { AuthGuard } from "./auth-guard.service";
 import { EqualValidator } from "./auth.equal-validator.directive";
-import { ClickOutSide } from './auth.click-out.directive';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     BrowserModule,
     AuthRoute,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   declarations: [
     AuthComponent,
     LoginComponent,
     SignUpComponent,
     EqualValidator,
-    ForgetPasswordComponent,
-    ClickOutSide
-  ],
-  exports:[
-    ClickOutSide
+    ForgetPasswordComponent
   ],
   providers:[{
     provide: AuthService, useClass: AuthService

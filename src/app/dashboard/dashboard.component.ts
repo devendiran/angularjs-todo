@@ -9,7 +9,18 @@ import { TodoService } from '../todo/todo.service';
 })
 export class DashBoardComponent {
   public todos: Todo;
+  public showCreateTodo: boolean;
+
   constructor(private todoSrv: TodoService){
     this.todos = todoSrv.getTodos();
+    this.showCreateTodo = false;
   };
+
+  toggleTodo(event: Event) {
+    if (event) {
+      event.stopPropagation();
+    }
+    
+    this.showCreateTodo = !this.showCreateTodo;
+  }
 }

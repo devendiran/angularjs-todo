@@ -23,7 +23,6 @@ export class ClickOutSide  {
 
   @HostListener('document:keydown', ['$event'])
   public handleKeyboardEvent(event: KeyboardEvent) {
-    console.log('...........test',event);
     if(event.keyCode === 27) {
       this.escKeyPressed.emit(event);
     }

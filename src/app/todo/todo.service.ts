@@ -13,4 +13,7 @@ export class TodoService {
     return this.todos;
   };
 
+  public pushTodo = function(todo: Todo) {
+    this.todos.push(todo);
+  }
 }
