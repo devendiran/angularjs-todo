@@ -9,9 +9,13 @@ import { TodoService } from './todo.service';
 })
 export class CreateTodoComponent {
   public todo : Todo;
+  public hideModal: boolean = false;
+  public isEditTodo: boolean;
 
   constructor(private todoSrv: TodoService) {
-    this.todo = new Todo('','', new Date());
+    let todoFormData = todoSrv.getTodoFormData();
+    this.todo = todoFormData.todo;
+    this.isEditTodo = todoFormData.isEdit;
   }
 
   @Output()
@@ -19,11 +23,18 @@ export class CreateTodoComponent {
 
 
   closePannel(event: any) {
-    this.closeModal.emit(null);
+    this.hideModal = !this.hideModal;
+    setTimeout(() => {this.closeModal.emit(null);},500);
   }
 
-  create() {
-    this.todoSrv.pushTodo(this.todo);
-    this.closeModal.emit(null);
+  createOrUpdateTodo(event: any) {
+    this.closePannel(event);
+    if (this.isEditTodo) {
+      this.todoSrv.updateTodo(this.todo);
+    } else {
+      this.todoSrv.pushTodo(this.todo);
+    }
   }
+
+
 }

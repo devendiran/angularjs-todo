@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Todo } from './todo';
 
 @Component({
@@ -11,4 +11,10 @@ export class TodoComponent {
   public todo: Todo;
   constructor(){
   };
+  @Output()
+  editTodo = new EventEmitter();
+
+  editTodoItem(event: Event, todo?: Todo, index?: any) {
+    this.editTodo.emit({ event, todo, index});
+  }
 }
