@@ -1,0 +1,54 @@
+@import "bourbon";
+
+
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+
+.form-signin, .form-signup {
+  width: 380px;
+  padding: 30px 25px 30px 25px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 2px;
+}
+
+.email-inp, .pass-inp, .user-name-inp {
+    height: 52px;
+}
+.auth-cont .checkbox {
+  margin-top: 0px;
+  margin-bottom: 16px;
+}
+.form-signin-heading, .form-signup-heading {
+   text-align: center;
+   margin-top: 0px;
+   margin-bottom: 15px;
+}
+
+.auth-cont .sub-btn:hover {
+	color: #fff;
+}
+
+.auth-cont .sub-btn {
+    margin-bottom: 10px;
+}
+
+.error-container .error-msg {
+    color: red;
+    font-size: 12px;
+    padding: 1px;
+}
+
+.sub-btn[disabled], .sub-btn[disabled]:hover{
+	background-color: #C5CAE9;
+}
+
+.forget-pass {
+	cursor: pointer;
+}

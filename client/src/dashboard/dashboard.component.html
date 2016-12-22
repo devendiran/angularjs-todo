@@ -1,0 +1,16 @@
+<div class="container" style="margin-top: 70px;">
+	<div class="row">
+		<div class="col-md-12 col-xs-12" style="margin-bottom: 20px;">
+		  <button class="btn-default btn pull-right add-todo add-todo-btn" (click)="populateTodo({ event: $event})">
+				<i class="material-icons add-todo-icon">add_circle_outline</i>
+				<div style="display: inline-block;vertical-align:middle;"> ADD TODO</div>
+			</button>
+	  </div>
+	</div>
+	<div class="row">
+		<todo *ngFor="let todo of todos; let index = i" [todo]="todo" (editTodo)="populateTodo($event)">
+		</todo>
+	</div>
+	<create-todo *ngIf="showCreateTodo" (closeModal)="toggleTodo($event)">
+	</create-todo>
+</div>

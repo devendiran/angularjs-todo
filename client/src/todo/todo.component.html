@@ -1,0 +1,30 @@
+<div class="col-md-4 col-sm-6 col-xs-12">
+  <div class="panel card-container no-border">
+    <div class="panel-body card">
+        <div  class="card-body-content">
+          <div class="card-header text-primary-color">
+              <h3>{{todo.title}}</h3>
+           </div>
+           <div class="card-content">
+              <div>
+                {{todo.description}}
+              </div>
+           </div>
+           <div class="col-md-12 card-footer secondary-text-color">
+              <div class="col-md-12 card-footer-icons-cont animated ">
+                <i class="material-icons font-sz-18">label</i>
+                <i class="material-icons font-sz-18" (click)="editTodoItem($event, todo, index)">edit</i>
+                <i class="material-icons font-sz-18">delete</i>
+                <i class="material-icons font-sz-18">more_vert</i>
+              </div>
+              <div class="col-md-12 card-footer-info animated">
+                Created on 12th Dec
+              </div>
+           </div>
+           <div class="pin-card">
+             <img src="../../public/images/pin.png" />
+           </div>
+       </div>
+    </div>
+   </div>
+</div>

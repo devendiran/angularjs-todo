@@ -1,0 +1,55 @@
+  <div class="wrapper auth-cont">
+    <form class="form-signup  md-whiteframe-2dp" #signupForm="ngForm" novalidate>
+      <h2 class="form-signup-heading secondary-text-color" (click)="makeSense()">Sign Up</h2>
+      <div class="user-name-inp">
+        <input type="text" class="form-control" [(ngModel)]="user.name" name="name" placeholder="User Name" #name="ngModel" required/>
+        <div class="error-container" [hidden]="name.valid || name.untouched">
+          <div class="error-msg" *ngIf="name.errors && name.errors.required">
+              Please enter your name.
+          </div>
+        </div>
+      </div>
+      <div class="email-inp">
+        <input type="text" class="form-control " [(ngModel)]="user.email" name="email" placeholder="Email Address" required #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"/>
+        <div class="error-container" [hidden]="email.valid || email.untouched">
+          <div class="error-msg" *ngIf="email.errors && email.errors.required">
+              Please enter your email.
+          </div>
+          <div class="error-msg" *ngIf="email.errors && email.errors.pattern">
+              Please enter an valid email.
+          </div>
+        </div>
+      </div>
+      <div class="pass-inp">
+        <input type="password" class="form-control" [(ngModel)]="user.password" name="password" placeholder="Password" #pass="ngModel" required validateEqual="confirmPassword" reverse="true"/>
+        <div class="error-container" [hidden]="pass.valid || pass.untouched">
+          <div class="error-msg" *ngIf="pass.errors && pass.errors.required">
+              Please enter your password.
+          </div>
+        </div>
+      </div>
+      <div class="pass-inp">
+        <input type="password" class="form-control" [(ngModel)]="user.confirmPassword" name="confirmPassword" placeholder="Confirm Password" #cnfPass="ngModel" required validateEqual="password" reverse="false"/>
+        <div class="error-container" [hidden]="cnfPass.valid || cnfPass.untouched">
+          <div class="error-msg" *ngIf="cnfPass.errors && cnfPass.errors.required" (click)="makeSense(cnfPass)">
+              Please enter your password again.
+          </div>
+          <div class="error-msg" *ngIf="cnfPass.errors  && !cnfPass.errors.validateEqual && cnfPass.value" (click)="makeSense(cnfPass)">
+              Confirm Password must match the password.
+          </div>
+        </div>
+      </div>
+<!--       <div class="checkbox">
+        <label>
+          <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe">
+          <span class="secondary-text-color" style="font-weight: 400;">
+            Remember me
+          </span>
+        </label>
+      </div> -->
+      <button class="btn btn-lg accent-color btn-block sub-btn" type="submit" [disabled]="!signupForm.valid">Sign Up</button>
+      <span class="secondary-text-color" style="font-size: 13px;">Already Have Account?</span>
+      <a [routerLink]="['/auth/login']" class="pull-right">Login</a>
+    </form>
+  </div>
+

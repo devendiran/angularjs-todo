@@ -1,0 +1,26 @@
+<div class="my-modal">
+  <div class="my-modal-content {{ hideModal ? 'fadeOutUp' : 'fadeInDown'}}  animated">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-md-4 col-md-offset-4" (clickOutSide)="closePannel($event)" (escKeyPressed)="closePannel($event)">
+          <div>
+            <div class="create-todo-hdr default-primary-color-bg-cl">
+              <h3>New Todo </h3>
+            </div>
+            <div class="create-todo-body panel col-md-12 md-whiteframe-2dp">
+              <form novalidate name="create-todo-form" (ngSubmit)="createOrUpdateTodo($event)">
+                <input type="text" class="form-control title-inp" [(ngModel)]="todo.title" name="title" placeholder="Title" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" />
+                <textarea class="form-control title-description" name="description" placeholder="Description" [(ngModel)]="todo.description"></textarea>
+                <div class="col-md-12 create-todo-footer">
+                  <button class="btn btn-primary create-btn pull-right" type="submit">Create</button>
+                  <button class="btn btn-default cancel-btn pull-right" type="button">Cancel</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

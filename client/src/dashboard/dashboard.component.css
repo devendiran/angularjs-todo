@@ -1,0 +1,20 @@
+.add-todo-icon {
+  font-size: 20px;
+  margin-top: 0px;
+  vertical-align: middle;
+}
+
+.add-todo, .add-todo:active:hover {
+  transition: all ease 0.8s;
+  font-weight: bold;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  background-color: #FF4081;
+  color: #fff;
+  border-color: #FF4081;
+  border-radius: 2px;
+}
+
+.add-todo:focus {
+  outline: none;
+}
