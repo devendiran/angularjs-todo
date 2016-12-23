@@ -18,8 +18,14 @@ export class LoginComponent {
   };
 
   signin(){
-    this.router.navigate(['home'],{});
-    this.authSrv.authorizationStatus(true);
+    // this.router.navigate(['home'],{});
+    // this.authSrv.authorizationStatus(true);
+    this.authSrv.login(this.user).subscribe((reponse: any) => {
+      this.router.navigate(['home'],{});
+      this.authSrv.authorizationStatus(true);
+    }, (error: any) => {
+      console.log('........signin');
+    });
   }
 
   togglePasswordPanel() {

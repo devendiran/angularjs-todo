@@ -9,7 +9,7 @@ export class AuthGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
     console.log(state,'ActivatedRouteSnapshotActivatedRouteSnapshot');
-    if (state.url !== '/auth/login' && !this.authService.getAuthenticationStatus()) {
+    if (state.url !== '/auth/login' && !this.authService.checkAuthenticationStatus()) {
       this.router.navigate(['/auth/login']);
       return false;
     }

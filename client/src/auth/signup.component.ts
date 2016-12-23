@@ -14,7 +14,6 @@ export class SignUpComponent {
   };
 
   public signUp(user: any) {
-  	console.log(user, '........hey');
     this.authSrv.signup(this.user)
    .subscribe((response: any) => {
    	console.log('...............success', response);
