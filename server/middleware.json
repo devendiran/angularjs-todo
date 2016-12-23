@@ -34,17 +34,21 @@
   "auth": {},
   "parse": {},
   "routes": {
+    "loopback#static": {
+      "params": "$!../client/dist"
+    },
     "loopback#rest": {
       "paths": [
         "${restApiRoot}"
       ]
+    },
+    "./middleware/myhandler": {
+      "paths": [
+        "/*"
+      ]
     }
   },
-  "files": {
-    "loopback#static": {
-      "params": "$!../client/dist" 
-    }
-  },
+  "files": {},
   "final": {
     "loopback#urlNotFound": {}
   },

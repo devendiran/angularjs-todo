@@ -1,6 +1,6 @@
   <div class="wrapper auth-cont">
-    <form class="form-signup  md-whiteframe-2dp" #signupForm="ngForm" novalidate>
-      <h2 class="form-signup-heading secondary-text-color" (click)="makeSense()">Sign Up</h2>
+    <form class="form-signup  md-whiteframe-2dp" #signupForm="ngForm" novalidate (ngSubmit)="signUp(signupForm)">
+      <h2 class="form-signup-heading secondary-text-color">Sign Up</h2>
       <div class="user-name-inp">
         <input type="text" class="form-control" [(ngModel)]="user.name" name="name" placeholder="User Name" #name="ngModel" required/>
         <div class="error-container" [hidden]="name.valid || name.untouched">

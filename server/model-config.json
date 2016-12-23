@@ -14,7 +14,7 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "rego"
   },
   "AccessToken": {
     "dataSource": "db",
@@ -36,6 +36,9 @@
     "dataSource": null
   },
   "todo": {
+    "dataSource": "rego"
+  },
+  "user": {
     "dataSource": "rego",
     "public": true
   }

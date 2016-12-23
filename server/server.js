@@ -29,11 +29,11 @@ boot(app, __dirname, function(err) {
     app.start();
 });
 
-app.use(loopback.static(path.resolve(__dirname, '..', 'client/dist')));
+// app.use(loopback.static(path.resolve(__dirname, '..', 'client/dist')));
 
-app.use('/api', loopback.rest());
+// app.use('/api', loopback.rest());
 
-app.all('/*', function(req, res, next) {
-  // Just send the index.html for other files to support HTML5Mode
-  res.sendFile('index.html', { root: path.resolve(__dirname, '..', 'client/dist') });
-});
+// app.all('/*', function(req, res, next) {
+//   // Just send the index.html for other files to support HTML5Mode
+//   res.sendFile('index.html', { root: path.resolve(__dirname, '..', 'client/dist') });
+// });
