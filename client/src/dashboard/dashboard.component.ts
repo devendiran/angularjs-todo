@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Todo } from '../todo/todo';
 import { TodoService } from '../todo/todo.service';
+import { Observable } from 'rxjs';
 import * as _ from 'lodash';
 
 @Component({
@@ -8,12 +9,11 @@ import * as _ from 'lodash';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashBoardComponent {
-  public todos: Todo;
+export class DashBoardComponent implements OnInit {
+  public todos: Todo[];
   public showCreateTodo: boolean;
 
   constructor(private todoSrv: TodoService){
-    this.todos = todoSrv.getTodos();
     this.showCreateTodo = false;
   };
 
@@ -32,5 +32,11 @@ export class DashBoardComponent {
       this.todoSrv.setTodoFormData({ todo, isEdit});
       this.toggleTodo(event);
     }
+  }
+
+  ngOnInit() {
+    this.todoSrv.getTodos().subscribe(todo => this.todos = todo, (error: any) => {
+      console.log('........signin');
+    });
   }
 }

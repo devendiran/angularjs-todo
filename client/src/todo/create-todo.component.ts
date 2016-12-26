@@ -28,12 +28,14 @@ export class CreateTodoComponent {
   }
 
   createOrUpdateTodo(event: any) {
-    this.closePannel(event);
     if (this.isEditTodo) {
       this.todoSrv.updateTodo(this.todo);
     } else {
-      this.todoSrv.pushTodo(this.todo);
+      this.todoSrv.createTodo(this.todo).subscribe((todo: Todo) => {
+        this.closePannel(event);
+      });
     }
+
   }
 
 

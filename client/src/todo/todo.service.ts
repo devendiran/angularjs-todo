@@ -1,23 +1,41 @@
 import { Injectable } from '@angular/core';
 import { Todo } from './todo';
 import * as _ from 'lodash';
+import { HttpClient } from '../shared/http-client';
+import { Subject, Observable } from 'rxjs';
+import { Response } from '@angular/http';
 
 @Injectable()
 export class TodoService {
-  private todos = [
-    new Todo('Angular 3 Component Design','Design and analysis required for making todo app', new Date(), 0),
-    new Todo('Profecta action popup ui design','Functional analysis and code refactoring  ', new Date(), 1),
-    new Todo('Take Passport','Twitter is an online news and social networking service where users post and read short 140-character messages called "tweets". Registered users can post and read tweets, but those who are unregistered can only read them', new Date(), 2)
-  ];
+  private todosUrl = '/api/todos';
+  private todos: Todo[] = [];
   private todoFormDate: { todo: Todo, isEdit: boolean, index?: number};
+  
+  constructor(private http: HttpClient) {
 
-  public getTodos = function () {
-    return this.todos;
+  }
+
+  public getTodos = function (): Observable<[Todo]> {
+    console.log('get todos for user');
+    return this.http.get(this.todosUrl)
+      .map((res: Response) => {
+        Array.prototype.push.apply(this.todos, res.json());
+        return this.todos;
+      })
+      .catch((error: Response | any) => { 
+        console.log(error, 'Error occured while registering users');
+        return Observable.throw(error);
+      });
   };
 
-  public pushTodo = function(todo: Todo) {
-    todo.id = this.todos.length + 1;
-    this.todos.push(todo);
+  public createTodo = function(todo: Todo) {
+    console.log('create todos for user');
+    return this.http.post(this.todosUrl, todo)
+      .map((res: Response) => this.todos.push(res.json()))
+      .catch((error: Response | any) => { 
+        console.log(error, 'Error occured while registering users');
+        return Observable.throw(error);
+      });
   }
 
   public getTodoFormData (): { todo: Todo, isEdit: boolean, index?: number} {

@@ -3,6 +3,8 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 import { ClickOutSide } from './click-out.directive';
 import { HttpModule, JsonpModule } from '@angular/http';
+import { HttpClient } from './http-client';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -11,6 +13,7 @@ import { HttpModule, JsonpModule } from '@angular/http';
   declarations: [
     ClickOutSide
   ],
+  providers:[HttpClient],
   exports:[
     ClickOutSide,
     BrowserModule,

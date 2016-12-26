@@ -24,7 +24,7 @@ export class LoginComponent {
       this.router.navigate(['home'],{});
       this.authSrv.authorizationStatus(true);
     }, (error: any) => {
-      console.log('........signin');
+      console.log('Error occured while login', error);
     });
   }
 
